@@ -34,7 +34,15 @@
     }
   </style>
 </head>
-<body>
+<body><script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("Noor-ul-Islam is ready!"))
+      .catch(error => console.log(error));
+  });
+}
+</script>
   <div class="card">
     <img src="logo.png" alt="Noor-ul-Islam Logo" width="120">
 <h1>Noor-ul-Islam</h1>
