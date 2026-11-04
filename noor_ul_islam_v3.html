@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c32">
+<title>Noor-ul-Islam</title>
+<style>
+:root{--green:#123c32;--green2:#1d5948;--gold:#d9b66f;--cream:#f7f3e9;--ink:#1d2a25;--muted:#65736b}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(135deg,#0d2c26,#1b5745);color:white;padding:22px 18px 24px;border-radius:0 0 25px 25px}
+.top{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border:1px solid #d9b66f;border-radius:14px;display:grid;place-items:center;font-size:25px;color:var(--gold)}
+h1{font-size:23px;margin:0}header p{margin:4px 0 0;color:#d9e8df;font-size:13px}
+.hero{margin-top:20px;padding:17px;border:1px solid #ffffff35;border-radius:17px;background:linear-gradient(110deg,#ffffff14,#ffffff08)}
+.hero b{color:var(--gold);font-size:17px}.hero p{line-height:1.5;margin:7px 0 0}
+main{max-width:760px;margin:auto;padding:16px 14px 90px}.section-title{font-size:18px;margin:20px 2px 12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.tile{border:1px solid #e4dfd2;background:white;border-radius:16px;padding:15px;text-align:left;min-height:105px;cursor:pointer;color:var(--ink);box-shadow:0 3px 12px #25382c0a}
+.tile .ico{font-size:25px}.tile strong{display:block;margin-top:8px;font-size:14px}.tile small{color:var(--muted)}
+.panel{background:white;border:1px solid #e6e0d4;border-radius:17px;padding:17px;margin:12px 0}
+.hidden{display:none}.back{border:0;background:#e8eee9;color:var(--green);border-radius:10px;padding:9px 13px;font-weight:650}
+h2{font-size:20px;margin:12px 0}.muted{color:var(--muted);font-size:13px;line-height:1.55}
+.item{padding:13px 0;border-bottom:1px solid #eee9df}.item:last-child{border:0}
+.ar{font-size:25px;direction:rtl;text-align:right;color:var(--green);line-height:1.8}.name{font-weight:700}.pill{display:inline-block;background:#edf3ee;color:#245541;padding:5px 9px;border-radius:20px;font-size:12px}
+button.action{background:var(--green);color:white;border:0;border-radius:11px;padding:11px 14px;font-weight:650;cursor:pointer;margin:5px 4px 5px 0}
+button.secondary{background:#eee9df;color:var(--green)}
+input{padding:11px;border:1px solid #d8d3c8;border-radius:10px;width:100%;font-size:15px}
+.compass{width:210px;height:210px;margin:18px auto;border:7px solid #e4d7b5;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff 0 55%,#f0eadb 56%);position:relative}
+.needle{font-size:52px;color:#a43d32;transform-origin:center;display:block}
+footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e7e1d6;display:flex;justify-content:space-around;padding:9px 3px calc(9px + env(safe-area-inset-bottom));z-index:3}
+footer button{border:0;background:none;color:#52645a;font-size:11px;padding:4px;cursor:pointer}footer span{display:block;font-size:19px;margin-bottom:2px}
+iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#111}
+.notice{background:#fff6df;border:1px solid #eedba8;border-radius:12px;padding:12px;font-size:13px;line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><div class="logo">☪</div><div><h1>Noor-ul-Islam</h1><p>Learn • Pray • Recite • Reflect</p></div></div>
+ <div class="hero"><b>السلام عليكم ورحمة الله وبركاته</b><p>A peaceful place to learn the basics of Islam, explore Qur’an lessons, and build your daily worship routine.</p></div>
+</header>
+<main>
+<section id="home">
+ <div class="section-title">Explore your learning</div>
+ <div class="grid">
+  <button class="tile" onclick="show('prayer')"><span class="ico">🕌</span><strong>Namaz / Salah</strong><small>Steps, movements & learning guide</small></button>
+  <button class="tile" onclick="show('quran')"><span class="ico">📖</span><strong>Qur’an learning</strong><small>Reading, recitation & adab</small></button>
+  <button class="tile" onclick="show('qaida')"><span class="ico">🔤</span><strong>Noorani Qaida</strong><small>Arabic letters and joining</small></button>
+  <button class="tile" onclick="show('names')"><span class="ico">✨</span><strong>99 Names of Allah</strong><small>Names and meanings</small></button>
+  <button class="tile" onclick="show('qibla')"><span class="ico">🧭</span><strong>Qibla direction</strong><small>Find the direction to the Kaaba</small></button>
+  <button class="tile" onclick="show('audio')"><span class="ico">🎧</span><strong>Reciters & audio</strong><small>Listen when connected</small></button>
+  <button class="tile" onclick="show('tahajjud')"><span class="ico">🌙</span><strong>Tahajjud</strong><small>Night prayer learning guide</small></button>
+  <button class="tile" onclick="show('courses')"><span class="ico">🎓</span><strong>Islamic courses</strong><small>Beginner learning roadmap</small></button>
+  <button class="tile" onclick="show('live')"><span class="ico">🕋</span><strong>Live Kaaba</strong><small>Online stream</small></button>
+  <button class="tile" onclick="show('gallery')"><span class="ico">🌅</span><strong>Islamic gallery</strong><small>Decorative backgrounds</small></button>
+ </div>
+ <div class="section-title">Daily reminder</div>
+ <div class="panel"><div class="ar">رَبِّ زِدْنِي عِلْمًا</div><b>Rabbi zidni ‘ilma</b><p class="muted">“My Lord, increase me in knowledge.” — Qur’an 20:114</p></div>
+</section>
+
+<section id="prayer" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Namaz / Salah</h2>
+<p class="muted">A beginner-friendly outline. Learn the exact recitations and details with a trusted teacher, since some details differ between schools of jurisprudence.</p>
+<div class="item"><b>1. Prepare</b><p class="muted">Make wudu, ensure the place and clothes are clean, cover the required area, face the Qibla, and make the intention in your heart.</p></div>
+<div class="item"><b>2. Begin standing</b><p class="muted">Stand calmly and say the opening takbir: “Allahu Akbar”. Recite Al-Fatihah and the additional recitation as taught.</p></div>
+<div class="item"><b>3. Ruku</b><p class="muted">Bow with calmness, then rise to standing.</p></div>
+<div class="item"><b>4. Sujud</b><p class="muted">Prostrate, sit briefly, and make the second prostration with calmness.</p></div>
+<div class="item"><b>5. Complete the prayer</b><p class="muted">Continue the required rak‘ahs, sit for tashahhud, and finish with salam according to the method you are learning.</p></div>
+<div class="notice">This is an overview, not a complete prayer manual. Ask a qualified local imam or teacher to demonstrate and check your practice.</div>
+</section>
+
+<section id="quran" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Qur’an learning</h2>
+<div class="panel"><span class="pill">Lesson 1</span><h3>Begin with respect and consistency</h3><p class="muted">Learn Arabic letter sounds, short vowels, joining rules, and tajwid gradually. Recite with a qualified teacher to correct pronunciation.</p></div>
+<div class="item"><b>Suggested learning path</b><p class="muted">Arabic alphabet → harakat → joined letters → sukun and shaddah → madd → basic tajwid → short surahs → regular revision.</p></div>
+<div class="panel">
+ <span class="pill">Qur’an audio player</span>
+ <h3>Listen to an Ayah</h3>
+ <label class="muted" for="surahSelect">Surah</label>
+ <select id="surahSelect" style="width:100%;padding:11px;border:1px solid #d8d3c8;border-radius:10px;margin:5px 0 10px"></select>
+ <label class="muted" for="ayahNumber">Ayah number</label>
+ <input id="ayahNumber" type="number" min="1" max="7" value="1" style="margin:5px 0 10px">
+ <label class="muted" for="reciterSelect">Reciter</label>
+ <select id="reciterSelect" style="width:100%;padding:11px;border:1px solid #d8d3c8;border-radius:10px;margin:5px 0 10px">
+  <option value="Alafasy_128kbps">Mishary Rashid Alafasy</option>
+  <option value="Abdul_Basit_Murattal_192kbps">Abdul Basit Abdul Samad (Murattal)</option>
+  <option value="Abdurrahmaan_As-Sudais_192kbps">Abdur Rahman Al-Sudais</option>
+  <option value="Maher_AlMuaiqly_128kbps">Maher Al-Muaiqly</option>
+  <option value="Husary_128kbps">Mahmoud Khalil Al-Husary</option>
+ </select>
+ <div id="ayahText" class="ar" style="text-align:center;min-height:55px">اختر السورة والآية</div>
+ <div id="audioStatus" class="muted" style="text-align:center;margin:8px 0">Choose a Surah and Ayah, then press Play.</div>
+ <audio id="quranAudio" controls preload="none" style="width:100%"></audio>
+ <div style="display:flex;flex-wrap:wrap;justify-content:center;margin-top:8px">
+  <button class="action secondary" onclick="changeAyah(-1)">← Previous Ayah</button>
+  <button class="action" onclick="playAyah()">▶ Play Ayah</button>
+  <button class="action secondary" onclick="changeAyah(1)">Next Ayah →</button>
+ </div>
+ <a id="downloadAyah" href="#" download="quran-ayah.mp3"><button class="action secondary" style="width:100%">Download this Ayah for offline listening</button></a>
+ <p class="muted">Stream recitations inside this app. Internet is needed to stream or download. After downloading an Ayah MP3, choose it below to play it offline from your device.</p>
+ <div class="divider" style="border-top:1px solid #eee9df;margin:14px 0"></div>
+ <h3>My offline Qur’an audio</h3>
+ <p class="muted">Select MP3 files you have already downloaded. They play locally on your device; no internet is needed.</p>
+ <input id="offlineAudioFiles" type="file" accept="audio/*,.mp3" multiple>
+ <div id="offlinePlaylist" class="muted" style="margin-top:10px">No offline files selected yet.</div>
+ <audio id="offlinePlayer" controls style="width:100%;margin-top:8px"></audio>
+</div>
+<div class="item"><b>Listening practice</b><p class="muted">Choose a reciter, Surah and Ayah above. Use the download option to save an individual Ayah for offline listening.</p></div>
+</section>
+
+<section id="qaida" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Qaida learning</h2><p class="muted">Starter Arabic alphabet reference. Tap each row and practise its sound with a teacher or reliable audio lesson.</p>
+<div class="panel"><div class="ar" style="text-align:center">ا ب ت ث ج ح خ</div><p class="muted">Alif, Ba, Ta, Tha, Jim, Ha, Kha</p></div>
+<div class="panel"><div class="ar" style="text-align:center">د ذ ر ز س ش ص ض</div><p class="muted">Dal, Dhal, Ra, Zay, Sin, Shin, Sad, Dad</p></div>
+<div class="panel"><div class="ar" style="text-align:center">ط ظ ع غ ف ق ك ل</div><p class="muted">Ta, Za, ‘Ayn, Ghayn, Fa, Qaf, Kaf, Lam</p></div>
+<div class="panel"><div class="ar" style="text-align:center">م ن و ه ء ي</div><p class="muted">Mim, Nun, Waw, Ha, Hamza, Ya</p></div>
+<div class="notice">Arabic letter pronunciation can vary by articulation point. Use this as a visual starter, not a substitute for listening and correction.</div>
+</section>
+
+<section id="names" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>99 Names of Allah</h2><input id="nameSearch" placeholder="Search Arabic name or meaning…" oninput="filterNames()"><div id="namesList"></div>
+</section>
+
+<section id="audio" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Qur’an reciters</h2><p class="muted">These are well-known reciters to search for. Audio playback and downloads require an internet source; this prototype does not bundle copyrighted recordings.</p>
+<div class="item"><b>Mishary Rashid Alafasy</b><p class="muted">Clear, widely listened-to recitations.</p></div>
+<div class="item"><b>Abdul Rahman Al-Sudais</b><p class="muted">Imam and reciter of the Grand Mosque.</p></div>
+<div class="item"><b>Maher Al-Muaiqly</b><p class="muted">Qur’an recitations and prayer recordings.</p></div>
+<div class="item"><b>Abdul Basit Abdus Samad</b><p class="muted">Renowned Egyptian Qur’an reciter.</p></div>
+<div class="item"><b>Saad Al-Ghamdi</b><p class="muted">Qur’an recitations.</p></div>
+<button class="action" onclick="show('quran')">Open the in-app Qur’an audio player</button>
+</section>
+
+<section id="tahajjud" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Tahajjud prayer</h2>
+<p class="muted">Tahajjud is a voluntary night prayer performed after ‘Isha and after sleeping, before Fajr. Learn the timing and method from a trusted scholar in your tradition.</p>
+<div class="item"><b>1. Timing</b><p class="muted">The night extends from after ‘Isha until Fajr. The last third of the night is a commonly recommended time.</p></div>
+<div class="item"><b>2. Intention and prayer</b><p class="muted">Make the intention in your heart and pray voluntary units calmly. There is flexibility in the number of units.</p></div>
+<div class="item"><b>3. Witr and dua</b><p class="muted">Learn how Witr fits into your night prayer routine according to your school, and make personal dua.</p></div>
+</section>
+
+<section id="courses" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Islamic course roadmap</h2>
+<div class="item"><b>Foundations of Islam</b><p class="muted">Five pillars, articles of faith, manners, sincerity and daily practice.</p></div>
+<div class="item"><b>Qur’an & Tajwid</b><p class="muted">Qaida, letter articulation, recitation rules, memorisation and revision.</p></div>
+<div class="item"><b>Fiqh for daily life</b><p class="muted">Wudu, ghusl, salah, fasting, zakah and practical questions. Follow a qualified teacher.</p></div>
+<div class="item"><b>Seerah & Islamic history</b><p class="muted">Life of Prophet Muhammad ﷺ, the early Muslim community and key historical periods.</p></div>
+<div class="item"><b>Hadith & character</b><p class="muted">Introductory hadith study, honesty, mercy, patience and good conduct.</p></div>
+<div class="notice">These are course outlines, not formal certifications or fatwas. Check teachers, sources and scholarly credentials before enrolling.</div>
+</section>
+
+<section id="qibla" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Qibla direction</h2><p class="muted">Allow location access to calculate the initial bearing from your location to the Kaaba. A compass sensor is needed to show which way your phone is facing.</p>
+<div class="compass"><span id="needle" class="needle">↑</span></div><div id="qiblaResult" class="muted" style="text-align:center">Tap the button to calculate Qibla.</div>
+<div style="text-align:center"><button class="action" onclick="getQibla()">Find Qibla</button></div>
+<div class="notice">Compass accuracy can be affected by metal, magnets, phone cases and device limitations. Calibrate your phone and verify the direction with a trusted local mosque or Qibla tool.</div>
+</section>
+
+<section id="live" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Live from Masjid al-Haram</h2>
+<p class="muted">The live broadcast is displayed inside this app page. It requires an internet connection; it cannot be a live broadcast offline.</p>
+<div class="panel">
+ <div style="font-size:35px;text-align:center">🕋</div>
+ <p style="text-align:center"><b>Qur’an TV — live from Makkah</b></p>
+ <iframe title="Qur’an TV live broadcast from Masjid al-Haram" src="https://quran.tv/radio/" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:680px;border:0;border-radius:12px;background:#f7f3e9"></iframe>
+ <p class="muted">This embeds the Qur’an TV live-radio page within the app rather than sending you to a YouTube search. Whether its player can load depends on the provider, your browser, and regional availability.</p>
+</div>
+<div class="notice"><b>Offline alternative:</b> A live camera feed cannot work without data or Wi-Fi. To watch without internet, you need a prerecorded Makkah video downloaded while connected. This version does not include a bundled HD video because the source and permission to redistribute it have not been verified.</div>
+</section>
+
+<section id="gallery" class="hidden">
+<button class="back" onclick="home()">← Home</button><h2>Islamic backgrounds</h2><p class="muted">Decorative backgrounds generated with CSS, so this section works offline.</p>
+<div class="panel" style="background:repeating-linear-gradient(45deg,#153c32,#153c32 12px,#1e5948 12px,#1e5948 24px);color:#f4e5bd;text-align:center;padding:45px 15px"><div style="font-size:54px">☪</div><b style="font-size:20px">بِسْمِ اللَّهِ</b><p>In the name of Allah</p></div>
+<div class="panel" style="background:radial-gradient(circle at center,#d9b66f,#f7f0df 65%);text-align:center;padding:45px 15px"><div style="font-size:55px">🕌</div><b>Peace • Prayer • Reflection</b></div>
+</section>
+</main>
+<footer>
+<button onclick="home()"><span>⌂</span>Home</button><button onclick="show('prayer')"><span>🕌</span>Prayer</button><button onclick="show('quran')"><span>📖</span>Qur’an</button><button onclick="show('qibla')"><span>🧭</span>Qibla</button><button onclick="show('live')"><span>🕋</span>Live</button>
+</footer>
+<script>
+const sections=['home','prayer','quran','qaida','names','audio','tahajjud','courses','qibla','live','gallery'];
+function show(id){sections.forEach(s=>document.getElementById(s).classList.toggle('hidden',s!==id));if(id==='quran'){initQuranPlayer();initOfflineAudio();}window.scrollTo(0,0)}
+function home(){show('home')}
+const names=[
+['الرَّحْمَٰن','Ar-Rahman','The Most Merciful'],['الرَّحِيم','Ar-Raheem','The Especially Merciful'],['الْمَلِك','Al-Malik','The King'],['الْقُدُّوس','Al-Quddus','The Most Holy'],['السَّلَام','As-Salam','The Source of Peace'],['الْمُؤْمِن','Al-Mu’min','The Giver of Security'],['الْمُهَيْمِن','Al-Muhaymin','The Guardian'],['الْعَزِيز','Al-Aziz','The Almighty'],['الْجَبَّار','Al-Jabbar','The Compeller'],['الْمُتَكَبِّر','Al-Mutakabbir','The Supreme'],['الْخَالِق','Al-Khaliq','The Creator'],['الْبَارِئ','Al-Bari','The Originator'],['الْمُصَوِّر','Al-Musawwir','The Fashioner'],['الْغَفَّار','Al-Ghaffar','The Constant Forgiver'],['الْقَهَّار','Al-Qahhar','The Subduer'],['الْوَهَّاب','Al-Wahhab','The Bestower'],['الرَّزَّاق','Ar-Razzaq','The Provider'],['الْفَتَّاح','Al-Fattah','The Opener'],['الْعَلِيم','Al-Alim','The All-Knowing'],['الْقَابِض','Al-Qabid','The Withholder'],['الْبَاسِط','Al-Basit','The Extender'],['الْخَافِض','Al-Khafid','The Reducer'],['الرَّافِع','Ar-Rafi','The Exalter'],['الْمُعِزّ','Al-Mu’izz','The Honourer'],['الْمُذِلّ','Al-Mudhill','The Dishonourer'],['السَّمِيع','As-Sami','The All-Hearing'],['الْبَصِير','Al-Basir','The All-Seeing'],['الْحَكَم','Al-Hakam','The Judge'],['الْعَدْل','Al-Adl','The Just'],['اللَّطِيف','Al-Latif','The Subtle'],['الْخَبِير','Al-Khabir','The All-Aware'],['الْحَلِيم','Al-Halim','The Forbearing'],['الْعَظِيم','Al-Azim','The Magnificent'],['الْغَفُور','Al-Ghafur','The Forgiving'],['الشَّكُور','Ash-Shakur','The Appreciative'],['الْعَلِيّ','Al-Ali','The Most High'],['الْكَبِير','Al-Kabir','The Most Great'],['الْحَفِيظ','Al-Hafiz','The Preserver'],['الْمُقِيت','Al-Muqit','The Sustainer'],['الْحَسِيب','Al-Hasib','The Reckoner'],['الْجَلِيل','Al-Jalil','The Majestic'],['الْكَرِيم','Al-Karim','The Generous'],['الرَّقِيب','Ar-Raqib','The Watchful'],['الْمُجِيب','Al-Mujib','The Responsive'],['الْوَاسِع','Al-Wasi','The All-Encompassing'],['الْحَكِيم','Al-Hakim','The All-Wise'],['الْوَدُود','Al-Wadud','The Most Loving'],['الْمَجِيد','Al-Majid','The Glorious'],['الْبَاعِث','Al-Ba’ith','The Resurrector'],['الشَّهِيد','Ash-Shahid','The Witness'],['الْحَقّ','Al-Haqq','The Truth'],['الْوَكِيل','Al-Wakil','The Trustee'],['الْقَوِيّ','Al-Qawiyy','The All-Strong'],['الْمَتِين','Al-Matin','The Firm'],['الْوَلِيّ','Al-Waliyy','The Protecting Friend'],['الْحَمِيد','Al-Hamid','The Praiseworthy'],['الْمُحْصِي','Al-Muhsi','The Accounter'],['الْمُبْدِئ','Al-Mubdi','The Originator'],['الْمُعِيد','Al-Mu’id','The Restorer'],['الْمُحْيِي','Al-Muhyi','The Giver of Life'],['الْمُمِيت','Al-Mumit','The Bringer of Death'],['الْحَيّ','Al-Hayy','The Ever-Living'],['الْقَيُّوم','Al-Qayyum','The Self-Subsisting'],['الْوَاجِد','Al-Wajid','The Finder'],['الْمَاجِد','Al-Mاجد','The Noble'],['الْوَاحِد','Al-Wahid','The One'],['الصَّمَد','As-Samad','The Eternal Refuge'],['الْقَادِر','Al-Qadir','The Able'],['الْمُقْتَدِر','Al-Muqtadir','The Powerful'],['الْمُقَدِّم','Al-Muqaddim','The Expediter'],['الْمُؤَخِّر','Al-Mu’akhkhir','The Delayer'],['الأَوَّل','Al-Awwal','The First'],['الآخِر','Al-Akhir','The Last'],['الظَّاهِر','Az-Zahir','The Manifest'],['الْبَاطِن','Al-Batin','The Hidden'],['الْوَالِي','Al-Wali','The Governor'],['الْمُتَعَالِي','Al-Muta’ali','The Most Exalted'],['الْبَرّ','Al-Barr','The Source of Goodness'],['التَّوَّاب','At-Tawwab','The Accepter of Repentance'],['الْمُنْتَقِم','Al-Muntaqim','The Avenger'],['العَفُوّ','Al-Afuww','The Pardoner'],['الرَّؤُوف','Ar-Ra’uf','The Kind'],['مَالِكُ الْمُلْك','Malik-ul-Mulk','Owner of Sovereignty'],['ذُو الْجَلَالِ وَالإِكْرَام','Dhul-Jalali wal-Ikram','Lord of Majesty and Honour'],['الْمُقْسِط','Al-Muqsit','The Equitable'],['الْجَامِع','Al-Jami','The Gatherer'],['الْغَنِيّ','Al-Ghani','The Self-Sufficient'],['الْمُغْنِي','Al-Mughni','The Enricher'],['الْمَانِع','Al-Mani','The Preventer'],['الضَّارّ','Ad-Darr','The Distresser'],['النَّافِع','An-Nafi','The Benefactor'],['النُّور','An-Nur','The Light'],['الْهَادِي','Al-Hadi','The Guide'],['الْبَدِيع','Al-Badi','The Incomparable Originator'],['الْبَاقِي','Al-Baqi','The Everlasting'],['الْوَارِث','Al-Warith','The Inheritor'],['الرَّشِيد','Ar-Rashid','The Guide to the Right Path'],['الصَّبُور','As-Sabur','The Patient']
+];
+function renderNames(list=names){document.getElementById('namesList').innerHTML=list.map((n)=>`<div class="item"><div class="ar">${n[0]}</div><div class="name">${n[1]}</div><div class="muted">${n[2]}</div></div>`).join('')||'<p class="muted">No match found.</p>'}
+function filterNames(){let q=document.getElementById('nameSearch').value.toLowerCase();renderNames(names.filter(n=>n.join(' ').toLowerCase().includes(q)))}
+
+const surahNames = [
+"Al-Fatihah","Al-Baqarah","Ali 'Imran","An-Nisa","Al-Ma'idah","Al-An'am","Al-A'raf","Al-Anfal","At-Tawbah","Yunus",
+"Hud","Yusuf","Ar-Ra'd","Ibrahim","Al-Hijr","An-Nahl","Al-Isra","Al-Kahf","Maryam","Ta-Ha",
+"Al-Anbiya","Al-Hajj","Al-Mu'minun","An-Nur","Al-Furqan","Ash-Shu'ara","An-Naml","Al-Qasas","Al-Ankabut","Ar-Rum",
+"Luqman","As-Sajdah","Al-Ahzab","Saba","Fatir","Ya-Sin","As-Saffat","Sad","Az-Zumar","Ghafir",
+"Fussilat","Ash-Shura","Az-Zukhruf","Ad-Dukhan","Al-Jathiyah","Al-Ahqaf","Muhammad","Al-Fath","Al-Hujurat","Qaf",
+"Adh-Dhariyat","At-Tur","An-Najm","Al-Qamar","Ar-Rahman","Al-Waqi'ah","Al-Hadid","Al-Mujadilah","Al-Hashr","Al-Mumtahanah",
+"As-Saff","Al-Jumu'ah","Al-Munafiqun","At-Taghabun","At-Talaq","At-Tahrim","Al-Mulk","Al-Qalam","Al-Haqqah","Al-Ma'arij",
+"Nuh","Al-Jinn","Al-Muzzammil","Al-Muddaththir","Al-Qiyamah","Al-Insan","Al-Mursalat","An-Naba","An-Nazi'at","Abasa",
+"At-Takwir","Al-Infitar","Al-Mutaffifin","Al-Inshiqaq","Al-Buruj","At-Tariq","Al-A'la","Al-Ghashiyah","Al-Fajr","Al-Balad",
+"Ash-Shams","Al-Layl","Ad-Duha","Ash-Sharh","At-Tin","Al-Alaq","Al-Qadr","Al-Bayyinah","Az-Zalzalah","Al-Adiyat",
+"Al-Qari'ah","At-Takathur","Al-Asr","Al-Humazah","Al-Fil","Quraysh","Al-Ma'un","Al-Kawthar","Al-Kafirun","An-Nasr",
+"Al-Masad","Al-Ikhlas","Al-Falaq","An-Nas"
+];
+const ayahCounts=[7,286,200,176,120,165,206,75,129,109,123,111,43,52,99,128,111,110,98,135,112,78,118,64,77,227,93,88,69,60,34,30,73,54,45,83,182,88,75,85,54,53,89,59,37,35,38,29,18,45,60,49,62,55,78,96,29,22,24,13,14,11,11,18,12,12,30,52,52,44,28,28,20,56,40,31,50,40,46,42,29,19,36,25,22,17,19,26,30,20,15,21,11,8,8,19,5,8,8,11,11,8,3,9,5,4,7,3,6,3,5,4,5,6];
+function initQuranPlayer(){
+ const sel=document.getElementById('surahSelect');
+ if(!sel || sel.options.length) return;
+ surahNames.forEach((n,i)=>{const o=document.createElement('option');o.value=i+1;o.textContent=(i+1)+'. '+n;sel.appendChild(o)});
+ sel.addEventListener('change',()=>{document.getElementById('ayahNumber').max=ayahCounts[Number(sel.value)-1];document.getElementById('ayahNumber').value=1;loadAyahText()});
+ document.getElementById('ayahNumber').addEventListener('change',loadAyahText);
+ document.getElementById('reciterSelect').addEventListener('change',updateAudioUrl);
+ loadAyahText();
+}
+function currentAudioUrl(){
+ const surah=Number(document.getElementById('surahSelect').value);
+ const ayah=Number(document.getElementById('ayahNumber').value);
+ const folder=document.getElementById('reciterSelect').value;
+ return `https://everyayah.com/data/${folder}/${String(surah).padStart(3,'0')}${String(ayah).padStart(3,'0')}.mp3`;
+}
+function updateAudioUrl(){
+ const url=currentAudioUrl();
+ document.getElementById('quranAudio').src=url;
+ document.getElementById('downloadAyah').href=url;
+ document.getElementById('downloadAyah').download=`surah-${document.getElementById('surahSelect').value}-ayah-${document.getElementById('ayahNumber').value}.mp3`;
+}
+async function loadAyahText(){
+ const surah=Number(document.getElementById('surahSelect').value||1);
+ const ayah=Number(document.getElementById('ayahNumber').value||1);
+ const status=document.getElementById('audioStatus');
+ if(ayah<1 || ayah>ayahCounts[surah-1]){status.textContent='Please enter a valid Ayah number for this Surah.';return}
+ status.textContent='Loading Ayah text…';
+ try{
+  const offset=ayahCounts.slice(0,surah-1).reduce((a,b)=>a+b,0);
+  const r=await fetch(`https://api.alquran.cloud/v1/ayah/${offset+ayah}/quran-uthmani`);
+  if(!r.ok) throw new Error('text');
+  const j=await r.json();
+  document.getElementById('ayahText').textContent=j.data.text;
+  status.textContent=`Surah ${surah}: Ayah ${ayah} • Select Play Ayah to listen.`;
+ }catch(e){
+  document.getElementById('ayahText').textContent='Arabic text could not load. You can still try playing the audio.';
+  status.textContent='Text needs an internet connection. Check your connection and try again.';
+ }
+ updateAudioUrl();
+}
+function playAyah(){
+ initQuranPlayer();
+ const a=document.getElementById('quranAudio');
+ updateAudioUrl();
+ document.getElementById('audioStatus').textContent='Loading recitation…';
+ a.onerror=()=>{document.getElementById('audioStatus').textContent='This recitation could not load right now. Check your connection or try another reciter.'};
+ a.play().then(()=>{document.getElementById('audioStatus').textContent='Now playing.'}).catch(()=>{document.getElementById('audioStatus').textContent='Audio could not start. Check your internet connection, then press Play on the audio player.'});
+}
+function changeAyah(delta){
+ initQuranPlayer();
+ const s=document.getElementById('surahSelect'), n=document.getElementById('ayahNumber');
+ let sn=Number(s.value), an=Number(n.value)+delta;
+ if(an<1 && sn>1){sn--;an=ayahCounts[sn-1]} else if(an>ayahCounts[sn-1] && sn<114){sn++;an=1}
+ an=Math.max(1,Math.min(ayahCounts[sn-1],an));s.value=sn;n.max=ayahCounts[sn-1];n.value=an;loadAyahText();
+}
+
+function initOfflineAudio(){
+ const picker=document.getElementById('offlineAudioFiles');
+ if(!picker || picker.dataset.ready) return;
+ picker.dataset.ready='1';
+ picker.addEventListener('change',()=>{
+  const files=[...picker.files];
+  const list=document.getElementById('offlinePlaylist');
+  list.innerHTML='';
+  if(!files.length){list.textContent='No offline files selected yet.';return}
+  files.forEach((file,i)=>{
+   const b=document.createElement('button');
+   b.className='action secondary';
+   b.textContent=`▶ ${file.name}`;
+   b.style.display='block';b.style.width='100%';b.style.textAlign='left';
+   b.addEventListener('click',()=>{
+    const player=document.getElementById('offlinePlayer');
+    if(player.dataset.objectUrl) URL.revokeObjectURL(player.dataset.objectUrl);
+    const url=URL.createObjectURL(file);player.dataset.objectUrl=url;player.src=url;player.play().catch(()=>{});
+   });
+   list.appendChild(b);
+  });
+ });
+}
+document.addEventListener('DOMContentLoaded',()=>{initQuranPlayer();initOfflineAudio()});
+
+
+renderNames();
+function getQibla(){
+ const out=document.getElementById('qiblaResult');
+ if(!navigator.geolocation){out.textContent='Location is not supported by this browser.';return}
+ out.textContent='Getting your location…';
+ navigator.geolocation.getCurrentPosition(pos=>{
+  const lat=pos.coords.latitude*Math.PI/180, lon=pos.coords.longitude*Math.PI/180;
+  const kaabaLat=21.4225*Math.PI/180, kaabaLon=39.8262*Math.PI/180;
+  const dLon=kaabaLon-lon;
+  const y=Math.sin(dLon), x=Math.cos(lat)*Math.tan(kaabaLat)-Math.sin(lat)*Math.cos(dLon);
+  const bearing=(Math.atan2(y,x)*180/Math.PI+360)%360;
+  out.innerHTML=`Qibla bearing: <b>${bearing.toFixed(1)}° clockwise from true north</b><br>Location accuracy: about ${Math.round(pos.coords.accuracy)} m`;
+  if(window.DeviceOrientationEvent){
+   window.addEventListener('deviceorientation',e=>{if(e.alpha!==null)document.getElementById('needle').style.transform=`rotate(${bearing-e.alpha}deg)`},{once:false});
+  }
+ },err=>{out.textContent='Could not get location. Allow location access and try again.'},{enableHighAccuracy:true,timeout:12000});
+}
+</script>
+</body></html>
