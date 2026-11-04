@@ -1,0 +1,9 @@
+{
+  "name": "Noor-ul-Islam",
+  "short_name": "Noor Islam",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f1f8f2",
+  "theme_color": "#176b45",
+  "description": "Your Islamic learning app"
+}
