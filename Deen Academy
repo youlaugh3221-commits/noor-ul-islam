@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deen Academy | Learn Islam</title>
+<style>
+:root {
+  --green:#0B3B32;
+  --gold:#D8B56D;
+  --cream:#F7F5EE;
+  --white:#FFFFFF;
+  --text:#243A32;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+}
+header{
+  background:var(--green);
+  color:white;
+  padding:15px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:48px;height:48px}
+.brand h2{color:var(--gold);font-size:19px}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{
+  border:0;background:transparent;color:white;
+  padding:10px;cursor:pointer;border-radius:8px;
+}
+nav button:hover{background:#ffffff20}
+.hero{
+  text-align:center;
+  padding:75px 20px;
+  background:linear-gradient(135deg,#0B3B32,#195B49);
+  color:white;
+}
+.hero h1{font-size:42px;color:var(--gold)}
+.hero p{font-size:17px;line-height:1.7}
+.btn{
+  background:var(--gold);
+  color:#173A2E;
+  border:0;border-radius:9px;
+  padding:13px 22px;
+  font-weight:bold;cursor:pointer;
+  margin:7px;
+}
+section{padding:45px 6%}
+h2{color:var(--green)}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:white;
+  border-radius:15px;
+  padding:23px;
+  box-shadow:0 5px 18px #00000010;
+  border-bottom:3px solid var(--gold);
+}
+.card h3{color:var(--green)}
+.card p{line-height:1.6;color:#66746D}
+.icon{font-size:35px}
+.page{display:none}
+.page.active{display:block}
+.hero .btn{margin-top:20px}
+.tag{
+  display:inline-block;
+  background:#F7EED9;
+  color:#75551E;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+.meeting{
+  background:var(--green);
+  color:white;
+  padding:25px;
+  border-radius:15px;
+  margin-top:20px;
+}
+.meeting h3{color:var(--gold)}
+input,select{
+  display:block;width:100%;
+  padding:12px;margin:10px 0;
+  border:1px solid #ddd;border-radius:8px;
+}
+footer{
+  background:var(--green);
+  color:white;
+  padding:30px;text-align:center;
+}
+footer p{color:#E4D9BD}
+@media(max-width:600px){
+  header{justify-content:center;gap:12px}
+  nav{justify-content:center}
+  .hero h1{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 100 100">
+      <path d="M50 5 L89 28 L89 72 L50 95 L11 72 L11 28Z"
+        fill="none" stroke="#D8B56D" stroke-width="3"/>
+      <path d="M57 22 C31 20 25 52 42 69
+        C55 83 77 73 80 54
+        C66 66 47 55 48 39
+        C49 31 52 26 57 22Z" fill="#D8B56D"/>
+      <path d="M28 76 Q50 60 72 76 M35 82 H65"
+        stroke="#D8B56D" fill="none" stroke-width="2"/>
+    </svg>
+    <h2>DEEN ACADEMY</h2>
+  </div>
+  <nav>
+    <button onclick="show('home')">Home</button>
+    <button onclick="show('quran')">Quran</button>
+    <button onclick="show('namaz')">Namaz</button>
+    <button onclick="show('seerah')">Seerah</button>
+    <button onclick="show('courses')">Courses</button>
+    <button onclick="show('classes')">Imam Classes</button>
+  </nav>
+</header>
+
+<main>
+<div id="home" class="page active">
+  <div class="hero">
+    <h1>Welcome to Deen Academy</h1>
+    <p>Learn Quran, understand Islam, improve your knowledge<br>
+    and grow with guidance from qualified teachers.</p>
+    <button class="btn" onclick="show('courses')">Explore Courses</button>
+    <button class="btn" onclick="show('classes')">Online Classes</button>
+  </div>
+
+  <section>
+    <h2>Explore Your Deen</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">📖</div>
+        <h3>Quran Academy</h3>
+        <p>Learn Arabic, Quran reading and Tajweed.</p>
+        <button class="btn" onclick="show('quran')">Explore</button>
+      </div>
+      <div class="card">
+        <div class="icon">🕌</div>
+        <h3>Namaz School</h3>
+        <p>Learn Wudu and the basics of Salah.</p>
+        <button class="btn" onclick="show('namaz')">Explore</button>
+      </div>
+      <div class="card">
+        <div class="icon">🌙</div>
+        <h3>Seerah</h3>
+        <p>Study the life of Prophet Muhammad ﷺ.</p>
+        <button class="btn" onclick="show('seerah')">Explore</button>
+      </div>
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>Islamic Courses</h3>
+        <p>Structured learning for different levels.</p>
+        <button class="btn" onclick="show('courses')">Explore</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="quran" class="page">
+<section>
+<h2>📖 Quran Academy</h2>
+<div class="cards">
+<div class="card"><h3>Arabic Letters</h3><p>Learn the Arabic alphabet and pronunciation.</p></div>
+<div class="card"><h3>Tajweed</h3><p>Study Quran recitation rules with a teacher.</p></div>
+<div class="card"><h3>Surah Learning</h3><p>Study surah meanings using trusted translations.</p></div>
+</div>
+</section>
+</div>
+
+<div id="namaz" class="page">
+<section>
+<h2>🕌 Learn Namaz</h2>
+<div class="cards">
+<div class="card"><h3>Wudu</h3><p>Understand preparation and cleanliness before prayer.</p></div>
+<div class="card"><h3>Five Daily Prayers</h3><p>Learn about Fajr, Dhuhr, Asr, Maghrib and Isha.</p></div>
+<div class="card"><h3>Prayer Basics</h3><p>Study the prayer sequence with a qualified Imam.</p></div>
+</div>
+</section>
+</div>
+
+<div id="seerah" class="page">
+<section>
+<h2>🌙 Seerah of Prophet Muhammad ﷺ</h2>
+<div class="cards">
+<div class="card"><h3>Early Life</h3><p>Learn about the early life of the Prophet ﷺ.</p></div>
+<div class="card"><h3>Makkah Period</h3><p>Study the beginning of the message in Makkah.</p></div>
+<div class="card"><h3>Madinah Period</h3><p>Explore the establishment of the Muslim community.</p></div>
+</div>
+</section>
+</div>
+
+<div id="courses" class="page">
+<section>
+<h2>🎓 Islamic Courses</h2>
+<div class="cards">
+<div class="card"><h3>Islamic Basics</h3><p>Introduction to Islamic beliefs and worship.</p><span class="tag">Free introduction</span></div>
+<div class="card"><h3>Quran Reading</h3><p>Arabic letters, reading and recitation.</p><span class="tag">Course</span></div>
+<div class="card"><h3>Understanding Salah</h3><p>Learn the foundations of daily prayer.</p><span class="tag">Course</span></div>
+<div class="card"><h3>Seerah Course</h3><p>Study the life and teachings of the Prophet ﷺ.</p><span class="tag">Course</span></div>
+</div>
+</section>
+</div>
+
+<div id="classes" class="page">
+<section>
+<h2>👳 Premium Imam Classes</h2>
+<p>Learn directly from your Imam through scheduled online meetings.</p>
+
+<div class="cards">
+<div class="card">
+<h3>📖 Live Quran Classes</h3>
+<p>Teacher-guided Quran learning.</p>
+<span class="tag">Premium</span>
+</div>
+<div class="card">
+<h3>🕌 Namaz Classes</h3>
+<p>Learn prayer with an Imam.</p>
+<span class="tag">Premium</span>
+</div>
+<div class="card">
+<h3>🌙 Islamic Studies</h3>
+<p>Seerah, Hadith and Islamic knowledge.</p>
+<span class="tag">Premium</span>
+</div>
+</div>
+
+<div class="meeting">
+<h3>Student Meeting Area</h3>
+<p>Premium students can join their scheduled class here.</p>
+<p>Meeting links will be added by the administrator.</p>
+<a id="meetingLink" href="#" target="_blank"
+rel="noopener noreferrer">
+<button class="btn">Join Online Class</button>
+</a>
+</div>
+
+<div class="card" style="margin-top:20px">
+<h3>Class Information</h3>
+<p>Contact the academy administrator for class schedules and premium access.</p>
+<p>Payments and access verification must be connected to a secure payment and membership service before launch.</p>
+</div>
+</section>
+</div>
+</main>
+
+<footer>
+<h2 style="color:#D8B56D">DEEN ACADEMY</h2>
+<p>Learn • Practise • Grow</p>
+<p>Islamic Learning Platform © 2026</p>
+</footer>
+
+<script>
+function show(id){
+ document.querySelectorAll('.page').forEach(p=>{
+   p.classList.remove('active');
+ });
+ document.getElementById(id).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
